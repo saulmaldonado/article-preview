@@ -1,19 +1,84 @@
+@import (css)
+  url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+
 @width: 700px;
-@height: @width * 0.42;
+@height: @width * 0.4;
+
+@primary-font-color: hsl(217, 19%, 35%);
+@secondary-font-color: hsl(214, 17%, 51%);
+@inactive-font-color: hsl(212, 23%, 69%);
+@shadow-color: hsl(206, 24%, 89%);
 
 .container {
-  border: black solid 2px;
+  font-family: 'Manrope', sans-serif;
   width: @width;
   height: @height;
   display: flex;
+  border-radius: @width * 0.02;
+  overflow: hidden;
+  background-color: white;
+  font-size: 13px;
+
+  box-shadow: 0px 0px 100px 14px @shadow-color;
 }
 
 .image {
-  width: 40%;
-  border: black solid 2px;
+  width: 45%;
+  overflow: hidden;
+  img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .info {
-  width: 60%;
-  border: black solid 2px;
+  width: 55%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .title {
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+  .subtitle {
+    line-height: 20px;
+    color: @secondary-font-color;
+  }
+}
+
+.author {
+  position: relative;
+  display: flex;
+  max-height: 20%;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    max-height: 100%;
+    max-width: 12%;
+    border-radius: 50%;
+  }
+
+  .dataContainer {
+    margin-left: 10px;
+    p {
+      margin: 5px;
+    }
+    .name {
+      font-weight: 700;
+    }
+    .date {
+      color: @inactive-font-color;
+    }
+  }
+
+  .share {
+    position: absolute;
+    right: 5px;
+    background-color: @shadow-color;
+    padding: 10px;
+    border-radius: 50%;
+  }
 }
