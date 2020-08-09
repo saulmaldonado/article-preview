@@ -11,6 +11,11 @@ interface Props {
   socialLinks: string[]
 }
 
-export const ArticlePreview = ({ title }: Props) => {
-  return <div className={styles.test}>Example Component: {title}</div>
+export const ArticlePreview = ({}: Props) => {
+  return (
+    <div className={styles.container}>
+      <div className={styles.image}></div>
+      <div className={styles.info}></div>
+    </div>
+  )
 }

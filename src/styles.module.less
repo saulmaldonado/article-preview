@@ -1,7 +1,19 @@
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
+@width: 700px;
+@height: @width * 0.42;
+
+.container {
+  border: black solid 2px;
+  width: @width;
+  height: @height;
+  display: flex;
+}
+
+.image {
+  width: 40%;
+  border: black solid 2px;
+}
+
+.info {
+  width: 60%;
+  border: black solid 2px;
 }
