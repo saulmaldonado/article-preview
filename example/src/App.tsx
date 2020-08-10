@@ -12,6 +12,7 @@ const socialLinks = {
   twitter: 'https://twitter.com',
   reddit: 'https://reddit.com',
   facebookMessenger: 'https://messenger.com',
+  linkedin: 'https://linkedin.com',
 };
 
 const App = () => {

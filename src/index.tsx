@@ -49,8 +49,10 @@ export const ArticlePreview = ({
             <div className={styles.popup}>
               <span className={styles.popuptext}>SHARE</span>
               <div className={styles.icons}>
-                {Object.keys(socialLinks).map(site => {
-                  return <SocialsIcon site={site} link={socialLinks[site]} />;
+                {Object.keys(socialLinks).map((site, i) => {
+                  return (
+                    <SocialsIcon site={site} link={socialLinks[site]} key={i} />
+                  );
                 })}
               </div>
             </div>
