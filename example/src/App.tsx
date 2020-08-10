@@ -6,6 +6,12 @@ import profilePicture from './images/avatar-michelle.jpg'
 
 import 'article-preview/dist/index.css'
 
+const socialLinks = {
+  facebook: 'https://facebook.com',
+  pintrest: 'https://pinterest.com',
+  twitter: 'https://twitter.com',
+}
+
 const App = () => {
   return (
     <ArticlePreview
@@ -18,11 +24,7 @@ const App = () => {
       datePosted={new Date('28 Jun 2020')}
       image={image}
       profilePicture={profilePicture}
-      socialLinks={[
-        'https://facebook.com',
-        'https://pinterest.com',
-        'https://twitter.com'
-      ]}
+      socialLinks={socialLinks}
     />
   )
 }

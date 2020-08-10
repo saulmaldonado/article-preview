@@ -12,7 +12,7 @@ interface Props {
   author: string
   profilePicture: string
   datePosted: Date
-  socialLinks: string[]
+  socialLinks: { twitter: string; pintrest: string; facebook: string }
 }
 
 export const ArticlePreview = ({
@@ -22,6 +22,7 @@ export const ArticlePreview = ({
   profilePicture,
   author,
   datePosted,
+  socialLinks,
 }: Props) => {
   return (
     <div className={styles.container}>
@@ -41,9 +42,15 @@ export const ArticlePreview = ({
             <div className={styles.popup}>
               <span className={styles.popuptext}>SHARE</span>
               <div className={styles.icons}>
-                <Facebook />
-                <Pinterest />
-                <Twitter />
+                <a href={socialLinks.facebook} target='_blank' rel='noopener'>
+                  <Facebook />
+                </a>
+                <a href={socialLinks.pintrest} target='_blank' rel='noopener'>
+                  <Pinterest />
+                </a>
+                <a href={socialLinks.twitter} target='_blank' rel='noopener'>
+                  <Twitter />
+                </a>
               </div>
             </div>
             <Share className={styles.shareIcon} />
