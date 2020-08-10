@@ -115,18 +115,20 @@
 
       .popup {
         .flex-vertical-center();
-        justify-content: space-evenly;
+        justify-content: space-between;
 
         color: white;
 
         position: absolute;
         z-index: 2;
         border-radius: 10px;
+        box-sizing: border-box;
         height: 60px;
-        width: 200px;
+        max-width: 250px;
         bottom: 150%;
         left: 50%;
-        margin-left: $width * -0.5;
+        padding-right: 10px;
+        padding-left: 10px;
         background-color: @dark-grey;
 
         .shadow-mix();
@@ -134,6 +136,7 @@
         animation-name: FadeInTooltip;
         animation-duration: 0.25s;
         animation-timing-function: cubic-bezier(0.7, 1.5, 0.78, 1.5);
+        animation-fill-mode: both;
 
         &::after {
           content: ' ';
@@ -147,13 +150,16 @@
         }
 
         .icons {
-          width: 60%;
+          max-width: 70%;
+
           .flex-vertical-center();
 
-          justify-content: space-evenly;
+          justify-content: space-between;
 
           > * {
             fill: white;
+            margin-left: 2.5px;
+            margin-right: 2.5px;
 
             transition: all 0.2s cubic-bezier(0.7, 1.5, 0.78, 1.5);
 
@@ -164,18 +170,18 @@
         }
 
         span {
-          width: 40%;
-          text-align: right;
           letter-spacing: 3px;
+          margin-right: 10px;
         }
       }
       @keyframes FadeInTooltip {
         from {
-          transform: translateY(10px);
+          transform: translateY(10px) translateX(-50%);
+
           opacity: 0;
         }
         to {
-          transform: translateY(0px);
+          transform: translateY(0px) translateX(-50%);
           opacity: 1;
         }
       }

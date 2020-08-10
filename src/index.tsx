@@ -1,19 +1,26 @@
-import * as React from 'react'
-import styles from './styles.module.less'
-import { ReactComponent as Share } from './images/icon-share.svg'
-import { ReactComponent as Facebook } from './images/icon-facebook.svg'
-import { ReactComponent as Pinterest } from './images/icon-pinterest.svg'
-import { ReactComponent as Twitter } from './images/icon-twitter.svg'
+import * as React from 'react';
+import styles from './styles.module.less';
+import Icons from './images/icons';
+import SocialsIcon from './components/SocialsIcon';
 
-interface Props {
-  title: string
-  subtitle: string
-  image: string
-  author: string
-  profilePicture: string
-  datePosted: Date
-  socialLinks: { twitter: string; pintrest: string; facebook: string }
-}
+type Props = {
+  title: string;
+  subtitle: string;
+  image: string;
+  author: string;
+  profilePicture: string;
+  datePosted: Date;
+  socialLinks: SocialLinks;
+};
+
+type SocialLinks = {
+  twitter?: string;
+  facebook?: string;
+  pinterest?: string;
+  facebookMessenger?: string;
+  linkedin?: string;
+  reddit?: string;
+};
 
 export const ArticlePreview = ({
   title,
@@ -27,13 +34,13 @@ export const ArticlePreview = ({
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <img src={image} alt={`${title}-image`} />
+        <img src={image} alt={'article-image'} />
       </div>
       <div className={styles.info}>
         <header className={styles.title}>{title}</header>
         <p className={styles.subtitle}>{subtitle}</p>
         <div className={styles.author}>
-          <img src={profilePicture} alt={`${author}-profile-picture`} />
+          <img src={profilePicture} alt={'author-profile-picture'} />
           <div className={styles.dataContainer}>
             <p className={styles.name}>{author}</p>
             <p className={styles.date}>{datePosted.toDateString()}</p>
@@ -42,21 +49,15 @@ export const ArticlePreview = ({
             <div className={styles.popup}>
               <span className={styles.popuptext}>SHARE</span>
               <div className={styles.icons}>
-                <a href={socialLinks.facebook} target='_blank' rel='noopener'>
-                  <Facebook />
-                </a>
-                <a href={socialLinks.pintrest} target='_blank' rel='noopener'>
-                  <Pinterest />
-                </a>
-                <a href={socialLinks.twitter} target='_blank' rel='noopener'>
-                  <Twitter />
-                </a>
+                {Object.keys(socialLinks).map(site => {
+                  return <SocialsIcon site={site} link={socialLinks[site]} />;
+                })}
               </div>
             </div>
-            <Share className={styles.shareIcon} />
+            <Icons.Share className={styles.shareIcon} />
           </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

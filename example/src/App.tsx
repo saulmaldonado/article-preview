@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import { ArticlePreview } from 'article-preview'
-import image from './images/drawers.jpg'
-import profilePicture from './images/avatar-michelle.jpg'
+import { ArticlePreview } from 'article-preview';
+import image from './images/drawers.jpg';
+import profilePicture from './images/avatar-michelle.jpg';
 
-import 'article-preview/dist/index.css'
+import 'article-preview/dist/index.css';
 
 const socialLinks = {
   facebook: 'https://facebook.com',
-  pintrest: 'https://pinterest.com',
+  pinterest: 'https://pinterest.com',
   twitter: 'https://twitter.com',
-}
+  reddit: 'https://reddit.com',
+  facebookMessenger: 'https://messenger.com',
+};
 
 const App = () => {
   return (
@@ -26,7 +28,7 @@ const App = () => {
       profilePicture={profilePicture}
       socialLinks={socialLinks}
     />
-  )
-}
+  );
+};
 
-export default App
+export default App;
