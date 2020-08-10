@@ -36,7 +36,8 @@ export const ArticlePreview = ({
             <p className={styles.date}>{datePosted.toDateString()}</p>
           </div>
           <div className={styles.share}>
-            <Share />
+            <div className={styles.popup}></div>
+            <Share className={styles.shareIcon} />
           </div>
         </div>
       </div>
