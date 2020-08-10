@@ -1,7 +1,9 @@
 import * as React from 'react'
 import styles from './styles.module.less'
-// import { ReactComponent as Facebook } from './images/icon-facebook.svg'
 import { ReactComponent as Share } from './images/icon-share.svg'
+import { ReactComponent as Facebook } from './images/icon-facebook.svg'
+import { ReactComponent as Pinterest } from './images/icon-pinterest.svg'
+import { ReactComponent as Twitter } from './images/icon-twitter.svg'
 
 interface Props {
   title: string
@@ -35,10 +37,17 @@ export const ArticlePreview = ({
             <p className={styles.name}>{author}</p>
             <p className={styles.date}>{datePosted.toDateString()}</p>
           </div>
-          <div className={styles.share}>
-            <div className={styles.popup}></div>
+          <button className={styles.share}>
+            <div className={styles.popup}>
+              <span className={styles.popuptext}>SHARE</span>
+              <div className={styles.icons}>
+                <Facebook />
+                <Pinterest />
+                <Twitter />
+              </div>
+            </div>
             <Share className={styles.shareIcon} />
-          </div>
+          </button>
         </div>
       </div>
     </div>
