@@ -18,6 +18,7 @@ const socialLinks = {
 const App = () => {
   return (
     <ArticlePreview
+      dark
       title='  Shift the overall look and feel by adding these wonderful 
   touches to furniture in your home'
       subtitle='Ever been in a room and felt like something was missing? Perhaps 

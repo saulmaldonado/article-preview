@@ -11,6 +11,7 @@ type Props = {
   profilePicture: string;
   datePosted: Date;
   socialLinks: SocialLinks;
+  dark?: true;
 };
 
 type SocialLinks = {
@@ -30,9 +31,10 @@ export const ArticlePreview = ({
   author,
   datePosted,
   socialLinks,
+  dark,
 }: Props) => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${dark ? styles.dark : ''}`}>
       <div className={styles.image}>
         <img src={image} alt={'article-image'} />
       </div>

@@ -1,13 +1,27 @@
 @import (css)
   url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
 
-@width: 700px;
-@height: @width * 0.4;
+@light: {
+  icon: white;
+  background: white;
+  dark-grey: hsl(217, 19%, 35%);
+  dark-blue: hsl(214, 17%, 51%);
+  grey-blue: hsl(212, 23%, 69%);
+  light-grey: hsl(206, 12%, 76%);
+};
 
-@dark-grey: hsl(217, 19%, 35%);
-@dark-blue: hsl(214, 17%, 51%);
-@grey-blue: hsl(212, 23%, 69%);
-@light-grey: hsl(206, 12%, 76%);
+@dark: {
+  icon: rgb(93, 93, 93);
+  background: rgb(59, 59, 59);
+  dark-grey: rgb(195, 195, 195);
+  dark-blue: rgb(160, 160, 160);
+  grey-blue: rgb(100, 100, 100);
+  light-grey: rgb(51, 51, 51);
+};
+
+@width: 600px;
+@height: @width * 0.4;
+@info-container-padding: 15px;
 
 .flex-vertical-center() {
   display: flex;
@@ -15,176 +29,324 @@
 }
 
 .shadow-mix() {
-  box-shadow: 0px 0px 50px 2px @light-grey;
+  box-shadow: 0px 0px 50px 2px @theme[light-grey];
 }
-.container {
+
+// main container
+
+.baseStyles() {
   font-family: 'Manrope', sans-serif;
   width: @width;
   height: @height;
   display: flex;
-  background-color: white;
+  background-color: @theme[background];
   font-size: 13px;
-  color: @dark-grey;
+  color: @theme[dark-grey];
   border-radius: @width * 0.02;
 
   .shadow-mix();
-}
 
-.image {
-  width: 45%;
-  overflow: hidden;
-  border-top-left-radius: @width * 0.02;
-  border-bottom-left-radius: @width * 0.02;
+  .image {
+    width: 45%;
+    overflow: hidden;
+    border-top-left-radius: @width * 0.02;
+    border-bottom-left-radius: @width * 0.02;
 
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.info {
-  width: 55%;
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .title {
-    font-weight: 700;
-    font-size: 1.5em;
-    letter-spacing: 1px;
-  }
-  .subtitle {
-    line-height: 20px;
-    color: @dark-blue;
-  }
-}
-
-.author {
-  .flex-vertical-center();
-  position: relative;
-  height: 20%;
-
-  img {
-    max-height: 100%;
-    max-width: 12%;
-    border-radius: 50%;
-  }
-
-  .dataContainer {
-    margin-left: 10px;
-    p {
-      margin: 3px;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
-    .name {
+  }
+
+  .info {
+    width: 55%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title {
       font-weight: 700;
+      font-size: 1.25em;
+      letter-spacing: 1px;
     }
-    .date {
-      color: @grey-blue;
+    .subtitle {
+      line-height: 20px;
+      color: @theme[dark-blue];
     }
   }
 
-  .share {
-    position: absolute;
-    right: 5px;
-    background-color: @light-grey;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
+  .author {
+    .flex-vertical-center();
+    position: relative;
+    height: 20%;
 
-    transition: ease-in-out all 0.2s;
-    .shareIcon {
-      fill: @dark-blue;
+    img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .dataContainer {
+      margin-left: 10px;
+      p {
+        margin: 3px;
+      }
+      .name {
+        font-weight: 700;
+      }
+      .date {
+        color: @theme[grey-blue];
+      }
+    }
+
+    .share {
+      position: absolute;
+      right: 5px;
+      background-color: @theme[light-grey];
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+
       transition: ease-in-out all 0.2s;
-    }
-
-    outline: none;
-    border: none;
-
-    .popup {
-      display: none;
-    }
-
-    &:focus,
-    &:hover {
-      background-color: @dark-blue;
-
       .shareIcon {
-        fill: white;
+        fill: @theme[dark-blue];
+        transition: ease-in-out all 0.2s;
       }
 
+      outline: none;
+      border: none;
+
       .popup {
-        .flex-vertical-center();
-        justify-content: space-between;
+        display: none;
+      }
 
-        color: white;
+      &:focus,
+      &:hover {
+        background-color: @theme[dark-blue];
 
-        position: absolute;
-        z-index: 2;
-        border-radius: 10px;
-        box-sizing: border-box;
-        height: 60px;
-        max-width: 250px;
-        bottom: 150%;
-        left: 50%;
-        padding-right: 10px;
-        padding-left: 10px;
-        background-color: @dark-grey;
-
-        .shadow-mix();
-
-        animation-name: FadeInTooltip;
-        animation-duration: 0.25s;
-        animation-timing-function: cubic-bezier(0.7, 1.5, 0.78, 1.5);
-        animation-fill-mode: both;
-
-        &::after {
-          content: ' ';
-          position: absolute;
-          top: 99%;
-          left: 50%;
-          margin-left: -15px;
-          border-width: 15px;
-          border-style: solid;
-          border-color: @dark-grey transparent transparent transparent;
+        .shareIcon {
+          fill: @theme[icon];
         }
 
-        .icons {
-          max-width: 70%;
-
+        .popup {
           .flex-vertical-center();
-
           justify-content: space-between;
 
-          > * {
-            fill: white;
-            margin-left: 2.5px;
-            margin-right: 2.5px;
+          color: @theme[icon];
 
-            transition: all 0.2s cubic-bezier(0.7, 1.5, 0.78, 1.5);
+          position: absolute;
+          z-index: 2;
+          border-radius: 10px;
+          box-sizing: border-box;
+          height: 60px;
+          max-width: 250px;
+          bottom: 150%;
+          left: 50%;
+          padding-right: 10px;
+          padding-left: 10px;
+          background-color: @theme[dark-grey];
 
-            &:hover {
-              transform: scale(1.2);
+          .shadow-mix();
+
+          animation-name: FadeInTooltip;
+          animation-duration: 0.25s;
+          animation-timing-function: cubic-bezier(0.7, 1.5, 0.78, 1.5);
+          animation-fill-mode: both;
+
+          &::after {
+            content: ' ';
+            position: absolute;
+            top: 99%;
+            left: 50%;
+            margin-left: -15px;
+            border-width: 15px;
+            border-style: solid;
+            border-color: @theme[dark-grey] transparent transparent transparent;
+          }
+
+          .icons {
+            max-width: 70%;
+
+            .flex-vertical-center();
+
+            justify-content: space-between;
+
+            > * {
+              fill: @theme[icon];
+              margin-left: 2.5px;
+              margin-right: 2.5px;
+
+              transition: all 0.2s cubic-bezier(0.7, 1.5, 0.78, 1.5);
+
+              &:hover {
+                transform: scale(1.2);
+              }
+            }
+          }
+
+          span {
+            letter-spacing: 3px;
+            margin-right: 10px;
+          }
+        }
+        @keyframes FadeInTooltip {
+          from {
+            transform: translateY(10px) translateX(-50%);
+
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0px) translateX(-50%);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 550px) {
+    .container {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .container {
+      flex-direction: column;
+      width: 300px;
+      min-width: 300px;
+      min-height: 500px;
+      box-sizing: border-box;
+    }
+
+    .image {
+      width: 100%;
+      height: 40%;
+      overflow: hidden;
+      border-top-right-radius: @width * 0.02;
+      border-top-left-radius: @width * 0.02;
+      border-bottom-left-radius: 0;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .info {
+      box-sizing: border-box;
+      display: flex;
+      padding: 0px; // remove section padding
+      height: 60%;
+      width: 100%;
+      font-size: 13px;
+      flex-direction: column;
+
+      justify-content: space-between;
+      .title {
+        font-size: 1.5em;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 15px;
+      }
+
+      .subtitle {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .author {
+        padding-left: 15px;
+        padding-right: 15px;
+        img {
+          height: 40px;
+          width: 40px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+
+      .share {
+        right: 15px;
+
+        transition: ease-in-out all 0.2s;
+
+        &:focus,
+        &:hover {
+          .shareIcon {
+            position: relative;
+            z-index: 1000;
+          }
+          .popup {
+            position: absolute;
+            z-index: 100;
+            border-radius: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-sizing: border-box;
+            height: 60px;
+            width: 300px;
+
+            max-width: 300px;
+            transform: translateX(-250px) translateY(20%);
+            bottom: 0px;
+            left: 0px;
+            padding-right: 15px;
+            padding-left: 15px;
+            background-color: @theme[dark-grey];
+
+            box-shadow: none;
+
+            animation-name: EnterShare;
+            animation-duration: 0.4s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+
+            &::after {
+              border-width: 0px;
+            }
+
+            .icons {
+              max-width: 70%;
+              margin-right: 50px;
+              .flex-vertical-center();
+
+              justify-content: space-between;
+
+              > * {
+                transform: scale(1);
+                fill: @theme[icon];
+                margin-left: 2.5px;
+                margin-right: 2.5px;
+
+                &:hover {
+                  transform: scale(1.2);
+                }
+              }
+            }
+          }
+          @keyframes EnterShare {
+            0% {
+              clip-path: circle(0% at 100% 100%);
+            }
+            100% {
+              clip-path: circle(200% at 0% 0%);
             }
           }
         }
-
-        span {
-          letter-spacing: 3px;
-          margin-right: 10px;
-        }
-      }
-      @keyframes FadeInTooltip {
-        from {
-          transform: translateY(10px) translateX(-50%);
-
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0px) translateX(-50%);
-          opacity: 1;
-        }
       }
     }
   }
+}
+
+.container {
+  @theme: @light;
+  .baseStyles();
+}
+
+.container.dark {
+  @theme: @dark;
+  .baseStyles();
 }
