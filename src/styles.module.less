@@ -22,6 +22,9 @@
 @width: 600px;
 @height: @width * 0.4;
 @info-container-padding: 15px;
+@profile-image-size: 40px;
+
+// mixins
 
 .flex-vertical-center() {
   display: flex;
@@ -34,7 +37,7 @@
 
 // main container
 
-.baseStyles() {
+.containerStyles() {
   font-family: 'Manrope', sans-serif;
   width: @width;
   height: @height;
@@ -43,9 +46,23 @@
   font-size: 13px;
   color: @theme[dark-grey];
   border-radius: @width * 0.02;
-
   .shadow-mix();
 
+  @media (max-width: 550px) {
+    font-size: 11px;
+  }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    width: 300px;
+    min-width: 300px;
+    min-height: 500px;
+    box-sizing: border-box;
+  }
+}
+
+// other styles
+.baseStyles() {
   .image {
     width: 45%;
     overflow: hidden;
@@ -61,10 +78,11 @@
 
   .info {
     width: 55%;
-    padding: 15px;
+    padding: @info-container-padding;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .title {
       font-weight: 700;
       font-size: 1.25em;
@@ -206,21 +224,7 @@
     }
   }
 
-  @media (max-width: 550px) {
-    .container {
-      font-size: 11px;
-    }
-  }
-
   @media (max-width: 450px) {
-    .container {
-      flex-direction: column;
-      width: 300px;
-      min-width: 300px;
-      min-height: 500px;
-      box-sizing: border-box;
-    }
-
     .image {
       width: 100%;
       height: 40%;
@@ -247,19 +251,19 @@
       justify-content: space-between;
       .title {
         font-size: 1.5em;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 15px;
+        padding-left: @info-container-padding;
+        padding-right: @info-container-padding;
+        padding-top: @info-container-padding;
       }
 
       .subtitle {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: @info-container-padding;
+        padding-right: @info-container-padding;
       }
 
       .author {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: @info-container-padding;
+        padding-right: @info-container-padding;
         img {
           height: 40px;
           width: 40px;
@@ -341,12 +345,18 @@
   }
 }
 
-.container {
+& {
   @theme: @light;
+  .container {
+    .containerStyles();
+  }
   .baseStyles();
-}
 
-.container.dark {
-  @theme: @dark;
-  .baseStyles();
+  //dark mode prop enabled
+  .dark {
+    @theme: @dark;
+    .containerStyles();
+
+    .baseStyles();
+  }
 }
