@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { ArticlePreview } from 'article-preview';
 import image from './images/drawers.jpg';
@@ -16,20 +16,37 @@ const socialLinks = {
 };
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   return (
-    <ArticlePreview
-      dark
-      title='  Shift the overall look and feel by adding these wonderful 
+    <>
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className='dark-mode-toggle'
+      >
+        Toggle dark mode
+      </button>
+      <ArticlePreview
+        dark={darkMode}
+        title='  Shift the overall look and feel by adding these wonderful 
   touches to furniture in your home'
-      subtitle='Ever been in a room and felt like something was missing? Perhaps 
+        subtitle='Ever been in a room and felt like something was missing? Perhaps 
       it felt slightly bare and uninviting. I’ve got some simple tips 
       to help you make any room feel complete.'
-      author='Michelle Appleton'
-      datePosted={new Date('28 Jun 2020')}
-      image={image}
-      profilePicture={profilePicture}
-      socialLinks={socialLinks}
-    />
+        author='ME'
+        datePosted={new Date('28 Jun 2020')}
+        image={image}
+        profilePicture={profilePicture}
+        socialLinks={socialLinks}
+      />
+    </>
   );
 };
 
