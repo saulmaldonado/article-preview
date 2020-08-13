@@ -49,8 +49,7 @@ const socialLinks = {
   linkedin: 'https://linkedin.com',
 };
 
-class Example extends Component {
-  render() {
+const Example = () => {
     return (
       <ArticlePreview
         dark={darkMode}
