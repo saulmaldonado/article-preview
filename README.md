@@ -2,6 +2,16 @@
 
 > Made with create-react-library
 
+Made for Article preview component Frontend Mentor challenge
+
+[https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT)
+
+Live: [https://saulmaldonado.github.io/article-preview](https://saulmaldonado.github.io/article-preview)
+
+## Preview
+
+![article-preview-preview](./articlepreview.gif)
+
 ## Install
 
 ```bash
