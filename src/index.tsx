@@ -11,7 +11,7 @@ type Props = {
   profilePicture: string;
   datePosted: Date;
   socialLinks: SocialLinks;
-  dark?: true;
+  dark?: boolean;
 };
 
 type SocialLinks = {

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ArticlePreview } from 'article-preview';
 import image from './images/drawers.jpg';
 import profilePicture from './images/avatar-michelle.jpg';
+import Toggle from './Toggle';
 
 import 'article-preview/dist/index.css';
 
@@ -27,12 +28,7 @@ const App = () => {
 
   return (
     <>
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className='dark-mode-toggle'
-      >
-        Toggle dark mode
-      </button>
+      <Toggle setDarkMode={setDarkMode} isDark={darkMode} />
       <ArticlePreview
         dark={darkMode}
         title='  Shift the overall look and feel by adding these wonderful 
