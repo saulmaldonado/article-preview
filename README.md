@@ -1,10 +1,8 @@
 # article-preview
 
-> Made with create-react-library
+Component made for the [Frontend Mentor](https://www.frontendmentor.io/) Article preview component challenge
 
-Made for Article preview component Frontend Mentor challenge
-
-[https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT)
+Try the challenge out for yourself: [Article preview component](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT)
 
 Live: [https://saulmaldonado.github.io/article-preview](https://saulmaldonado.github.io/article-preview)
 
@@ -16,6 +14,10 @@ Live: [https://saulmaldonado.github.io/article-preview](https://saulmaldonado.gi
 
 ```bash
 npm install @saulmaldonado/article-preview
+```
+or
+```bash
+ yarn add @saulmaldonado/article-preview
 ```
 
 ## Props
