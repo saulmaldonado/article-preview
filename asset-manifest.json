@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "./static/css/main.a78b1e3b.chunk.css",
+    "main.js": "./static/js/main.07a60715.chunk.js",
+    "main.js.map": "./static/js/main.07a60715.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.e20573e8.js",
+    "runtime-main.js.map": "./static/js/runtime-main.e20573e8.js.map",
+    "static/js/2.38583ef5.chunk.js": "./static/js/2.38583ef5.chunk.js",
+    "static/js/2.38583ef5.chunk.js.map": "./static/js/2.38583ef5.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.10172585b5716906d47dc27ab801416c.js": "./precache-manifest.10172585b5716906d47dc27ab801416c.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.a78b1e3b.chunk.css.map": "./static/css/main.a78b1e3b.chunk.css.map",
+    "static/js/2.38583ef5.chunk.js.LICENSE.txt": "./static/js/2.38583ef5.chunk.js.LICENSE.txt",
+    "static/media/drawers.jpg": "./static/media/drawers.bcb67475.jpg",
+    "static/media/icon-facebook-messenger~BCjvfbxi.svg": "./static/media/icon-facebook-messenger~BCjvfbxi.f26a669d.svg",
+    "static/media/icon-facebook~SvkjyEeY.svg": "./static/media/icon-facebook~SvkjyEeY.87fd60e5.svg",
+    "static/media/icon-linkedin~VopiwcKx.svg": "./static/media/icon-linkedin~VopiwcKx.17a21804.svg",
+    "static/media/icon-pinterest~biZsyYkg.svg": "./static/media/icon-pinterest~biZsyYkg.672fe612.svg",
+    "static/media/icon-reddit~ApPpXucD.svg": "./static/media/icon-reddit~ApPpXucD.75abb0b1.svg",
+    "static/media/icon-share~GurnUaYD.svg": "./static/media/icon-share~GurnUaYD.fd590c63.svg",
+    "static/media/icon-twitter~UkJKCAvz.svg": "./static/media/icon-twitter~UkJKCAvz.4013bcc9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e20573e8.js",
+    "static/js/2.38583ef5.chunk.js",
+    "static/css/main.a78b1e3b.chunk.css",
+    "static/js/main.07a60715.chunk.js"
+  ]
+}
