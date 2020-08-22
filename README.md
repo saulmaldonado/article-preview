@@ -4,7 +4,7 @@ Component made for the [Frontend Mentor](https://www.frontendmentor.io/) Article
 
 Try the challenge out for yourself: [Article preview component](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT)
 
-Live: [https://saulmaldonado.github.io/article-preview](https://saulmaldonado.github.io/article-preview)
+Live: [https://saulmaldonado.github.io/article-preview/](https://saulmaldonado.github.io/article-preview/)
 
 ## Preview
 
