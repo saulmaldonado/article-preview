@@ -68,3 +68,40 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+@media (max-height: 620px) {
+  .slider {
+    position: absolute;
+    top: 0px;
+    height: 25px;
+
+    transition: 0.5s;
+  }
+  .switch {
+    top: 5px;
+  }
+  .slider {
+    line-height: 20px;
+  }
+
+  .slider.light:before {
+    font-size: 11px;
+  }
+
+  .slider.dark:before {
+    font-size: 11px;
+  }
+
+  .slider:before {
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 3px;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(32px);
+    -ms-transform: translateX(32px);
+    transform: translateX(32px);
+  }
+}
